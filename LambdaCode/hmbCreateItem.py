@@ -10,10 +10,6 @@ hmb_item_table_required_field = os.environ['ITEMS_TABLE_REQUIRED_FIELDS']
 
 #define boto variables
 dynamodb = boto3.client('dynamodb')
-
-
-def generate_item_id ():
-    return random.randint(1,999999)
     
     
 def is_valid_shopping_data (data) :
@@ -45,7 +41,7 @@ def boto_put_item (table_name, item) :
 def create_item (event, context):
     # TODO implement
     data = json.loads(event['body'])
-    response = put_shopping_item(str(generate_item_id()), data['name'], data['price'])
+    response = put_shopping_item(str(data['name'], data['price'])
     print(response)
     
     to_return = {
